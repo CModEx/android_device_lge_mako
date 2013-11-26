@@ -58,6 +58,7 @@ PRODUCT_COPY_FILES += \
 	device/lge/mako/thermald-mako.conf:system/etc/thermald.conf
 
 PRODUCT_COPY_FILES += \
+	device/lge/mako/fkbootscript.sh:root/sbin/fkbootscript.sh \
 	device/lge/mako/init.mako.rc:root/init.mako.rc \
 	device/lge/mako/init.mako.usb.rc:root/init.mako.usb.rc \
 	device/lge/mako/fstab.mako:root/fstab.mako \

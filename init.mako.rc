@@ -490,5 +490,18 @@ service qrngd /system/bin/qrngd -f
     user root
     group root
 
+service fkbootscript /sbin/fkbootscript.sh
+    class late_start
+	user root
+	disabled
+    oneshot
+
+on property:sys.boot_completed=1
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "interactive"
+	start fkbootscript
+
 # on property:gsm.sim.state=READY
 #    start diag_mdlog
